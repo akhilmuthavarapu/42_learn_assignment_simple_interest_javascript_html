@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+    
+    body {
+            font-family: Arial, sans-serif;
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 50%;
+            text-align: center;
+            background:linear-gradient(90deg,black,aliceblue,orange);
+        }
+        input,  button {
+            margin: 10px 0;
+            padding: 10px;
+            width: 100%;
+        }
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+   
+        <label>Principle Amount:</label>
+        <input id="principle_amount" type="number"/><br>
+        <label>Tenure: </label>
+        <input id="tenure" type="text"/><br>
+        <label> Rate of Interest: </label>
+        <input id="r_o_i" type="text"/>
+        <button onclick="calculate()">Calculate</button>
+        <div id="result"></div>
+        <script>
+            function calculate() {
+               
+                const p = parseFloat(document.getElementById('principle_amount').value);
+                const t = parseFloat(document.getElementById('tenure').value);
+                const r = parseFloat(document.getElementById('r_o_i').value);
+
+                let result = '';
+    
+                if (isNaN(p) || isNaN(t)||isNaN(r)) {
+                    result = 'Please enter valid numbers!';
+                } else {
+                    result = `The difference is: ${(p*t*r)/100}`;
+                    }
+                
+    
+                document.getElementById('result').innerText = result;
+            }
+        </script>
+</body>
+</html>
